@@ -63,21 +63,21 @@
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
                                 </a>
                             </li>
-                            {{-- <li class="nav-item">
-                                <a class="nav-link text-white rounded-1 hstack justify-content-between {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }}"
-                                    href="{{ route('admin.projects.index') }}">
+                            <li class="nav-item">
+                                <a class="nav-link text-white rounded-1 hstack justify-content-between {{ Route::currentRouteName() == 'admin.menu.index' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.menu.index') }}">
                                     <span>
-                                        <i class="fa-solid fa-list-check fa-lg fa-fw"></i> Projects
+                                        <i class="fa-solid fa-list-check fa-lg fa-fw"></i> Menu
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link text-white rounded-1 {{ Route::currentRouteName() == 'admin.projects.create' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.projects.create') }}">
                                     <i class="fa-solid fa-plus fa-lg fa-fw"></i> New project
                                 </a>
-                            </li>
-                            <li class="nav-item">
+                            </li> --}}
+                            {{-- <li class="nav-item">
                                 <a class="nav-link text-white rounded-1 hstack justify-content-between {{ Route::currentRouteName() == 'admin.projects.deleted' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.projects.deleted') }}">
                                     <span>
