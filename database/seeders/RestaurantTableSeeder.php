@@ -22,8 +22,8 @@ class RestaurantTableSeeder extends Seeder
             $newRestaurant = new Restaurant();
             $newRestaurant->address = $faker->streetAddress();
             $newRestaurant->VAT_no = $faker->vat();
-            $newRestaurant->name = $faker->company();
-            $newRestaurant->slug = Str::slug($newRestaurant->name);
+            $newRestaurant->restaurant_name = $faker->company();
+            $newRestaurant->slug = Str::slug($newRestaurant->restaurant_name);
             $newRestaurant->description = $faker->randomElement(
                 [
                     "Oasi gastronomica nel cuore di Roma, dove sapori autentici e un'atmosfera raffinata creano un'esperienza culinaria indimenticabile.",
