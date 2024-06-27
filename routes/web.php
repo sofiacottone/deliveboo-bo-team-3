@@ -27,8 +27,6 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('menu', DishController::class);
-        Route::get('register-restaurant', [RestaurantController::class, 'create'])->name('register.restaurant');
-        Route::post('register-restaurant', [RestaurantController::class, 'store'])->name('register.restaurant');
     });
 
 Route::middleware('auth')->group(function () {
