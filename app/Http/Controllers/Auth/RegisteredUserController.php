@@ -60,6 +60,7 @@ class RegisteredUserController extends Controller
         $newRestaurant = new Restaurant();
         $newRestaurant->fill($formData);
         $newRestaurant->slug = Str::slug($newRestaurant->restaurant_name, '-');
+        $newRestaurant->user_id = $user->id;
         $newRestaurant->save();
 
         // add relationship
