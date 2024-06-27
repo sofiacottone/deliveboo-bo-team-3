@@ -2,7 +2,7 @@
 
 @section('content')
     
-    @foreach ($restaurant->dishes as $dish)
+    @foreach ($dishes as $dish)
     
         <div>{{ $dish->name }}</div>
     @endforeach

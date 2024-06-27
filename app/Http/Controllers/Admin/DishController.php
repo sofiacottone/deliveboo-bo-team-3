@@ -16,14 +16,16 @@ class DishController extends Controller
      */
     public function index(Restaurant $restaurant)
     {
-        $restaurant = Restaurant::join('dishes', 'restaurant_id', '=', 'restaurants.id')
-        ->where('restaurants.id', '=', 'dishes.restaurant_id')->get();
-        // $dishes = Dish::all();
-        // $restaurant = Restaurant::findOrFail($dishes->restaurant_id);
-        $data=['restaurant'=>$restaurant];
-        //dd($restaurant);
-        return view('admin.dishes.index', $data);
-        
+        // $restaurant = Restaurant::join('dishes', 'restaurant_id', '=', 'restaurants.id')
+        // ->where('restaurants.id', '=', 'dishes.restaurant_id')->get();
+        // // $dishes = Dish::all();
+        // // $restaurant = Restaurant::findOrFail($dishes->restaurant_id);
+        // $data=['restaurant'=>$restaurant];
+        // return view('admin.dishes.index', $data);
+        $user = auth()->user();
+        $dishes = $user->restaurant->dishes;
+        //dd($dishes);
+        return view('admin.dishes.index', compact('dishes'));
     }
 
     /**
