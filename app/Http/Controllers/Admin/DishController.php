@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Dish;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
 class DishController extends Controller
@@ -13,10 +14,16 @@ class DishController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Restaurant $restaurant)
     {
-        $dishes = Dish::all();
-        return view('admin.dishes.index', compact('dishes'));
+        $restaurant = Restaurant::join('dishes', 'restaurant_id', '=', 'restaurants.id')
+        ->where('restaurants.id', '=', 'dishes.restaurant_id')->get();
+        // $dishes = Dish::all();
+        // $restaurant = Restaurant::findOrFail($dishes->restaurant_id);
+        $data=['restaurant'=>$restaurant];
+        //dd($restaurant);
+        return view('admin.dishes.index', $data);
+        
     }
 
     /**

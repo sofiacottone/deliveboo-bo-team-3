@@ -1,5 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-    ciao piatti
+    
+    @foreach ($restaurant->dishes as $dish)
+    
+        <div>{{ $dish->name }}</div>
+    @endforeach
+    test
+    
 @endsection
