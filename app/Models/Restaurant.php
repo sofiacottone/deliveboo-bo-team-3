@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Restaurant extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'image', 'address', 'VAT_no', 'description'];
+    protected $fillable = ['restaurant_name', 'image', 'address', 'VAT_no', 'description'];
 
     public function user()
     {
@@ -18,5 +18,10 @@ class Restaurant extends Model
     public function dishes()
     {
         return $this->hasMany(Dish::class);
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
     }
 }
