@@ -26,9 +26,9 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-        Route::resource('menu', DishController::class);
-        Route::get('/menu/{id}', [DishController::class, 'show'])->name('menu.show');
-        Route::get('/menu/create', [DishController::class, 'create'])->name('menu.create');
+        Route::resource('menu', DishController::class)->parameters(['menu' => 'dish:slug']);    
+        // Route::get('/menu/{id}', [DishController::class, 'show'])->name('menu.show');
+        // Route::get('/menu/create', [DishController::class, 'create'])->name('menu.create');
     });
 
 Route::middleware('auth')->group(function () {

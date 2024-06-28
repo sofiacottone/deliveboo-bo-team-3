@@ -24,7 +24,7 @@
             <td>{{$dish->price}}</td>
             <td>{{$dish->description}}</td>
             <td>
-                <a class="text-body" href="{{ route('admin.menu.show', $dish->id) }}"><i class="fa-solid fa-info"></i></a>
+                <a class="text-body" href="{{ route('admin.menu.show', $dish->slug) }}"><i class="fa-solid fa-info"></i></a>
                 <i class="fa-solid fa-pen-to-square"></i>
                 <i class="fa-solid fa-trash"></i>
             </td>

@@ -7,6 +7,7 @@ use App\Models\Dish;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class DishController extends Controller
 {
@@ -42,6 +43,10 @@ class DishController extends Controller
     public function store(Request $request)
     {
         $formdata = $request->all();
+        if($request->hasFile('image')){
+            $img_path = Storage::disk('public')->put('dish_image', $formdata['image']);
+            $formdata['image'] = $img_path;
+        }
         $newDish = new Dish();
         $newDish->fill($formdata);
         $newDish->slug = Str::slug($newDish->name,'-');
@@ -57,10 +62,11 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Dish $dish)
     {
-        $dish = Dish::find($id);
-        return view('admin.dishes.show', compact('dish'));
+        
+        $data = ['dish'=>$dish];
+        return view('admin.dishes.show', $data);
     }
 
     /**
