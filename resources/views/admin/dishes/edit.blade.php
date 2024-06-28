@@ -60,27 +60,25 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="mb-4 row">
-                                <label for="name"
+                                <label for="description"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Disponibile') }}</label>
-
-                                <div class="col-md-6">
-                                    <div class="form-check form-switch">
-                                        @if ($errors->any())
-                                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" @checked(old($dish->visibility))>
-                                        @else 
-                                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" @checked(old($dish->visibility))>
-                                        @endif
-                                            <label class="form-check-label" for="flexSwitchCheckDefault">No-Si</label>
-                                      </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="visibility" id="visibility_yes" value="1" {{ old('visibility', $dish->visibility) == 1 ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="visibility_yes">
+                                    Sì
+                                    </label>
                                 </div>
-
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="visibility" id="visibility_no" value="0" {{ old('visibility', $dish->visibility) == 0 ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="visibility_no">
+                                    No
+                                    </label>
+                                </div>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
                             <div class="mb-4 row">
                                 <label for="description"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Descrizione') }}</label>
@@ -95,20 +93,18 @@
                                     @enderror
                                 </div>
                             </div>
-                    </div>
-                    
 
-                    <div class="mb-4 row mb-0">
-                        <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-primary">
-                                {{ __('Conferma') }}
-                            </button>
-                        </div>
+                            <div class="mb-4 row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Conferma') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection
