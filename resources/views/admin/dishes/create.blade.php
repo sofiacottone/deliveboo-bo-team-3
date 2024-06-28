@@ -63,10 +63,20 @@
                                 <label for="name"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Disponibile') }}</label>
 
-                                <div class="col-md-6">
-                                    <input id="name" type="radio"
-                                        class="form-control @error('name') is-invalid @enderror" name="name"
-                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                              Default checkbox
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                            <label class="form-check-label" for="flexCheckChecked">
+                                              Checked checkbox
+                                            </label>
+                                          </div>
+                                    </div>
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
