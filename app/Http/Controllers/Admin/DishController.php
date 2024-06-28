@@ -76,7 +76,8 @@ class DishController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dish = Dish::find($id);
+        return view('admin.dishes.edit', compact('dish'));
     }
 
     /**
