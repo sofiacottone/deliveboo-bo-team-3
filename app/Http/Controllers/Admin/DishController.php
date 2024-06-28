@@ -115,4 +115,19 @@ class DishController extends Controller
 
         return view('admin.dishes.deleted', compact('dishes'));
     }
+
+    /**
+     * Restore a specified soft deleted resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function restore($id)
+    {
+        // $dish = Dish::findOrFail($id);
+        $dish = Dish::where('id', $id)->withTrashed();
+        // dd($dish);
+        $dish->restore();
+
+        return redirect()->route('admin.menu.index');
+    }
 }
