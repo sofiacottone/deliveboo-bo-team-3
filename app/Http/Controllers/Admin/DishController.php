@@ -103,4 +103,16 @@ class DishController extends Controller
         $dish->delete();
         return redirect()->route('admin.menu.index');
     }
+
+    /**
+     * Display a listing of the deleted resources.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function deleted()
+    {
+        $dishes = Dish::onlyTrashed()->get();
+
+        return view('admin.dishes.deleted', compact('dishes'));
+    }
 }
