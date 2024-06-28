@@ -42,6 +42,15 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate(
+            [
+                'name' => 'required|max:250|min:5',
+                'price' => 'required|max:999|min:1',
+                'image' => 'nullable|image',
+                'description' => 'nullable|max:5000|min:10'
+            ], );
+
         $formdata = $request->all();
         if($request->hasFile('image')){
             $img_path = Storage::disk('public')->put('dish_image', $formdata['image']);
