@@ -21,7 +21,7 @@ class DishController extends Controller
         $dishes = $user->restaurant->dishes;
         return view('admin.dishes.index', compact('dishes'));
     }
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -29,7 +29,7 @@ class DishController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
+    {
         return view('admin.dishes.create');
     }
 
@@ -44,7 +44,7 @@ class DishController extends Controller
         $formdata = $request->all();
         $newDish = new Dish();
         $newDish->fill($formdata);
-        $newDish->slug = Str::slug($newDish->name,'-');
+        $newDish->slug = Str::slug($newDish->name, '-');
         $user = auth()->user();
         $newDish->restaurant_id = $user->restaurant->id;
         $newDish->save();
