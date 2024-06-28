@@ -27,8 +27,8 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('menu', DishController::class);
-        Route::get('/menu/{id}', [DishController::class, 'show'])->name('menu.show');
-        Route::get('/menu/create', [DishController::class, 'create'])->name('menu.create');
+        Route::get('/deleted', [DishController::class, 'deleted'])->name('menu.deleted');
+        Route::get('/restore/{dish}', [DishController::class, 'restore'])->name('menu.restore');
     });
 
 Route::middleware('auth')->group(function () {
