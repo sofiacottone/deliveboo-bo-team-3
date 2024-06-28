@@ -43,7 +43,7 @@ class DishController extends Controller
     public function store(Request $request)
     {
         $formdata = $request->all();
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $img_path = Storage::disk('public')->put('dish_image', $formdata['image']);
             $formdata['image'] = $img_path;
         }
@@ -99,6 +99,8 @@ class DishController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dish = Dish::findOrFail($id);
+        $dish->delete();
+        return redirect()->route('admin.menu.index');
     }
 }
