@@ -87,9 +87,36 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Dish $dish)
     {
-        //
+        $request->validate(
+            [
+                'name' => [
+                    'required',
+                    'max:250', 
+                    'min:5',
+                ],
+                'price' => 'required|max:999|min:1',
+                'image' => 'nullable|image',
+                'description' => 'nullable|max:5000|min:10',
+            ], );
+
+        $formdata = $request->all();
+
+        if ($request->hasFile('image')) {
+            // Rimuovi la vecchia immagine se esiste
+            if ($dish->image) {
+                Storage::disk('public')->delete($dish->image);
+            }
+            $img_path = Storage::disk('public')->put('dish_image', $formdata['image']);
+            $formdata['image'] = $img_path;
+        } else {
+            $formdata['image'] = $dish->image; // Mantieni l'immagine esistente se non ne viene caricata una nuova
+        }
+
+        $dish->update($formdata);
+        
+        return redirect()->route('admin.menu.show', ['menu' => $dish->id]);
     }
 
     /**
