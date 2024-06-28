@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Aggiungi il tuo piatto!') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('admin.menu.store') }}">
                             @csrf
 
                             <div class="mb-4 row">
@@ -49,7 +49,7 @@
 
                                 <div class="col-md-6">
                                     <input id="image" type="file"
-                                        class="form-control @error('image') is-invalid @enderror" name="image" required
+                                        class="form-control @error('image') is-invalid @enderror" name="image"
                                         autocomplete="image" autofocus>
 
                                     @error('image')

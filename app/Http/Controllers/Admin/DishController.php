@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Dish;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class DishController extends Controller
 {
@@ -41,6 +42,13 @@ class DishController extends Controller
     public function store(Request $request)
     {
         $formdata = $request->all();
+        $newDish = new Dish();
+        $newDish->fill($formdata);
+        $newDish->slug = Str::slug($newDish->name,'-');
+        $user = auth()->user();
+        $newDish->restaurant_id = $user->restaurant->id;
+        $newDish->save();
+        return redirect()->route('admin.menu.index');
     }
 
     /**
