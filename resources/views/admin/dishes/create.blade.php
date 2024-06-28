@@ -85,6 +85,7 @@
                                 <label for="description"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Descrizione') }}</label>
 
+
                                 <div class="col-md-6">
                                     <textarea id="description" type="text" class="form-control" rows="10" name="description" minlength="10"
                                         maxlength="5000">{{ old('description') }}</textarea>
@@ -97,6 +98,7 @@
                                 </div>
                             </div>
                     </div>
+
 
 
                     <div class="mb-4 row mb-0">
