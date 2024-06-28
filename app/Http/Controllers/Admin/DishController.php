@@ -28,8 +28,8 @@ class DishController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   $categories = Category::all();
-        return view('admin.dishes.create', compact('categories'));
+    {   
+        return view('admin.dishes.create');
     }
 
     /**
@@ -40,7 +40,7 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formdata = $request->all();
     }
 
     /**
