@@ -69,12 +69,6 @@
                                         <label class="form-check-label" for="flexSwitchCheckDefault">No-Si</label>
                                       </div>
                                 </div>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                             <div class="mb-4 row">
                                 <label for="description"
