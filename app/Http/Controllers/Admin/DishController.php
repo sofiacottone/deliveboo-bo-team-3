@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Dish;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class DishController extends Controller
@@ -15,9 +16,11 @@ class DishController extends Controller
      */
     public function index()
     {
-        $dishes = Dish::all();
+        $user = auth()->user();
+        $dishes = $user->restaurant->dishes;
         return view('admin.dishes.index', compact('dishes'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -25,8 +28,8 @@ class DishController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   $categories = Category::all();
+        return view('admin.dishes.create', compact('categories'));
     }
 
     /**
@@ -48,7 +51,8 @@ class DishController extends Controller
      */
     public function show($id)
     {
-        //
+        $dish = Dish::find($id);
+        return view('admin.dishes.show', compact('dish'));
     }
 
     /**
