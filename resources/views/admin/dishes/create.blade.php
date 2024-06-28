@@ -32,7 +32,7 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Prezzo') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="price" type="number" min="1"
+                                    <input id="price" type="number" min="1" step=".1"
                                         class="form-control @error('price') is-invalid @enderror" name="price"
                                         value="{{ old('price') }}" required autocomplete="price" autofocus>
 
