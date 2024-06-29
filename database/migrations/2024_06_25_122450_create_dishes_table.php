@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('name');
             $table->decimal('price', 5, 2);
-            $table->boolean('visibility')->default(true);
+            $table->boolean('visibility');
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();

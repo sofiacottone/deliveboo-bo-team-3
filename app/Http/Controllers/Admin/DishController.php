@@ -22,7 +22,7 @@ class DishController extends Controller
         $dishes = $user->restaurant->dishes;
         return view('admin.dishes.index', compact('dishes'));
     }
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -30,7 +30,7 @@ class DishController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
+    {
         return view('admin.dishes.create');
     }
 
@@ -42,6 +42,15 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate(
+            [
+                'name' => 'required|max:250|min:5',
+                'price' => 'required|max:999|min:1',
+                'image' => 'nullable|image',
+                'description' => 'nullable|max:5000|min:10'
+            ], );
+
         $formdata = $request->all();
         if($request->hasFile('image')){
             $img_path = Storage::disk('public')->put('dish_image', $formdata['image']);
@@ -49,7 +58,7 @@ class DishController extends Controller
         }
         $newDish = new Dish();
         $newDish->fill($formdata);
-        $newDish->slug = Str::slug($newDish->name,'-');
+        $newDish->slug = Str::slug($newDish->name, '-');
         $user = auth()->user();
         $newDish->restaurant_id = $user->restaurant->id;
         $newDish->save();
