@@ -5,15 +5,15 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
+                    <div class="card-header">{{ __('Registrati') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" onsubmit="return validateForm()">
                             @csrf
 
                             <div class="mb-4 row">
                                 <label for="name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Tuo nome') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
@@ -30,7 +30,7 @@
 
                             <div class="mb-4 row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo E-Mail') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -52,30 +52,29 @@
                                 <div class="col-md-6">
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="new-password">
-
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                        required autocomplete="new-password" oninput="checkPasswordMatch()">
                                 </div>
                             </div>
 
                             <div class="mb-4 row">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password">
+                                        name="password_confirmation" required autocomplete="new-password" oninput="checkPasswordMatch()">
                                 </div>
+                                @error('password')
+                                    <span class="invalid-feedback d-none" id="password-error" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror                            
                             </div>
 
                             {{-- restaurant info  --}}
                             <div class="mb-4 row">
                                 <label for="restaurant-name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Restaurant name') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome ristorante') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="restaurant-name" type="text"
@@ -92,7 +91,7 @@
 
                             <div class="mb-4 row">
                                 <label for="address"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo ristorante') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="address" type="text"
@@ -109,7 +108,7 @@
 
                             <div class="mb-4 row">
                                 <label for="vat-no"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('VAT number') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Partita iva') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="vat-no" type="text"
@@ -126,7 +125,7 @@
 
                             <div class="mb-4 row">
                                 <div class="col-md-4 col-form-label text-md-right">
-                                    {{ __('Category (select one or more)') }}</div>
+                                    {{ __('Categoria (seleziona una o più)') }}</div>
 
                                 <div class="col-md-6">
                                     @foreach ($categories as $category)
@@ -150,7 +149,7 @@
 
                             <div class="mb-4 row">
                                 <label for="description"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Descrizione del ristorante') }}</label>
 
                                 <div class="col-md-6">
                                     <textarea id="description" type="text" class="form-control" rows="10" name="description">{{ old('description') }}</textarea>
@@ -176,4 +175,32 @@
             </div>
         </div>
     </div>
+    <script>
+
+        function checkPasswordMatch() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("password-confirm").value;
+            const errorMessage = document.getElementById("password-error");
+    
+            if (password !== confirmPassword) {
+                errorMessage.classList.remove("d-none");
+            } else {
+                errorMessage.classList.add("d-none");
+            }
+        }
+
+
+        function validateForm() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("password-confirm").value;
+
+            if (password !== confirmPassword) {
+                alert("Password e conferma password devono essere uguali");
+                return false;
+            }
+            return true;
+        }
+
+    </script>
+    
 @endsection
