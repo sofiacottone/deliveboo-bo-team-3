@@ -101,20 +101,16 @@ class DishController extends Controller
         $dish = Dish::find($id);
         $request->validate(
             [
-                'name' => [
-                    'required',
-                    'max:250', 
-                    'min:5',
-                ],
+                'name' => 'required|max:250|min:5',
                 'price' => 'required|max:999|min:1',
                 'image' => 'nullable|image',
                 'description' => 'nullable|max:5000|min:10',
-            ], 
+            ],
 
             [
                 'name.required' => "Il campo 'Nome del piatto' è richiesto",
-                'name.min' => "Il 'Nome del piatto' deve avere almeno 5 caratteri",
                 'name.max' => "Il 'Nome del piatto' può avere massimo 250 caratteri",
+                'name.min' => "Il 'Nome del piatto' deve avere almeno 5 caratteri",
                 'price.required' => "Il campo 'prezzo' è richiesto",
                 'price.max' => "Il campo 'prezzo' può avere un valore di massimo €999",
                 'price.min' => "Il campo 'prezzo' deve avere almeno il valore di €1",
@@ -125,6 +121,8 @@ class DishController extends Controller
         );
         
         $formdata = $request->all();
+        $this->validation($formData);
+
         if ($request->hasFile('image')) {
             // Rimuovi la vecchia immagine se esiste
             if ($dish->image) {

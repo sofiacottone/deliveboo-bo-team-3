@@ -14,33 +14,32 @@
 
                             <div class="mb-4 row">
                                 <label for="name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome del Piatto') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome del Piatto') }} *</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror"  name="name"
-                                        value="{{ old('name', $dish->name) }}" required autocomplete="name" autofocus>
-
+                                        value="{{ old('name', $dish->name) }}" autocomplete="name" autofocus>
                                     @error('name')
-                                        {{-- <span class="invalid-feedback" role="alert"> --}}
-                                            <strong class="alert alert-danger">{{ $message }}</strong>
-                                        {{-- </span> --}}
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                     @enderror
                                 </div>
                             </div>
                             <div class="mb-4 row">
                                 <label for="price"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Prezzo') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Prezzo') }} *</label>
 
                                 <div class="col-md-6">
                                     <input id="price" type="number" min="1" step=".1"
                                         class="form-control @error('price') is-invalid @enderror" name="price"
-                                        value="{{ old('price', $dish->price) }}" required autocomplete="price" autofocus>
+                                        value="{{ old('price', $dish->price) }}" autocomplete="price" autofocus>
 
                                     @error('price')
-                                        {{-- <span class="invalid-feedback" role="alert"> --}}
-                                            <strong class="alert alert-danger">{{ $message }}</strong>
-                                        {{-- </span> --}}
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                     @enderror
                                 </div>
                             </div>
@@ -50,7 +49,7 @@
 
                                 <div class="col-md-6">
                                     <input id="image" type="file"
-                                        class="form-control @error('image') is-invalid @enderror" name="image" required
+                                        class="form-control @error('image') is-invalid @enderror" name="image"
                                         autocomplete="image" autofocus>
                                     <!-- Errore caricamento immagine -->
                                     @error('image')
@@ -102,9 +101,9 @@
                                 </div>
                                 <div class="mt-4">
                                     @error('description')
-                                        {{-- <span role="alert"> --}}
+                                        <span role="alert">
                                             <strong class="alert alert-danger">{{ $message }}</strong>
-                                        {{-- </span> --}}
+                                        </span>
                                     @enderror
                                 </div>
                             </div>
