@@ -52,44 +52,59 @@
                                     <input id="image" type="file"
                                         class="form-control @error('image') is-invalid @enderror" name="image" required
                                         autocomplete="image" autofocus>
-
+                                    <!-- Errore caricamento immagine -->
                                     @error('image')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                    <!-- Se l'immagine è stata già caricata viene visualizzata altrimenti viene visualizzato un messaggio -->
+                                    <div class="my-4">
+                                        @if ($dish->image)
+                                            <div>
+                                                <img style="width: 300px;" src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }}">
+                                            </div>
+                                        @else 
+                                            <p>Non è ancora stata caricata nessuna immagine</p>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
-                                <label for="description"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Disponibile') }}</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="visibility" id="visibility_yes" value="1" {{ old('visibility', $dish->visibility) == 1 ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="visibility_yes">
-                                    Sì
-                                    </label>
+                                <div class="mb-4 row">
+                                    <label for="visibiility"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Disponibile') }}</label>
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="visibility" id="visibility_yes" value="1" {{ old('visibility', $dish->visibility) == 1 ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="visibility_yes">
+                                                Sì
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="visibility" id="visibility_no" value="0" {{ old('visibility', $dish->visibility) == 0 ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="visibility_no">
+                                                No
+                                            </label>
+                                        </div>
+                                        @error('visibiility')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="visibility" id="visibility_no" value="0" {{ old('visibility', $dish->visibility) == 0 ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="visibility_no">
-                                    No
-                                    </label>
-                                </div>
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             <div class="mb-4 row">
                                 <label for="description"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Descrizione') }}</label>
         
                                 <div class="col-md-6">
-                                    <textarea id="description" type="text" class="form-control" rows="10" name="description">{{ old('description', $dish->description) }}</textarea>
-        
+                                    <textarea id="description" type="text" class="form-control @error('description') is-invalid @enderror" rows="10" name="description">{{ old('description', $dish->description) }}</textarea>
+                                </div>
+                                <div class="mt-4">
                                     @error('description')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        {{-- <span role="alert"> --}}
+                                            <strong class="invalid-feedback">{{ $message }}</strong>
+                                        {{-- </span> --}}
                                     @enderror
                                 </div>
                             </div>
