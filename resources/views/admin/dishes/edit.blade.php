@@ -18,13 +18,13 @@
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
-                                        class="form-control @error('name') is-invalid @enderror" name="name"
+                                        class="form-control @error('name') is-invalid @enderror"  name="name"
                                         value="{{ old('name', $dish->name) }}" required autocomplete="name" autofocus>
 
                                     @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        {{-- <span class="invalid-feedback" role="alert"> --}}
+                                            <strong class="alert alert-danger">{{ $message }}</strong>
+                                        {{-- </span> --}}
                                     @enderror
                                 </div>
                             </div>
@@ -38,9 +38,9 @@
                                         value="{{ old('price', $dish->price) }}" required autocomplete="price" autofocus>
 
                                     @error('price')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        {{-- <span class="invalid-feedback" role="alert"> --}}
+                                            <strong class="alert alert-danger">{{ $message }}</strong>
+                                        {{-- </span> --}}
                                     @enderror
                                 </div>
                             </div>
@@ -54,9 +54,9 @@
                                         autocomplete="image" autofocus>
                                     <!-- Errore caricamento immagine -->
                                     @error('image')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        {{-- <span class="invalid-feedback" role="alert"> --}}
+                                            <strong class="alert alert-danger">{{ $message }}</strong>
+                                        {{-- </span> --}}
                                     @enderror
                                     <!-- Se l'immagine è stata già caricata viene visualizzata altrimenti viene visualizzato un messaggio -->
                                     <div class="my-4">
@@ -87,9 +87,9 @@
                                             </label>
                                         </div>
                                         @error('visibiility')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                            {{-- <span class="invalid-feedback" role="alert"> --}}
+                                                <strong class="alert alert-danger">{{ $message }}</strong>
+                                            {{-- </span> --}}
                                         @enderror
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@
                                 <div class="mt-4">
                                     @error('description')
                                         {{-- <span role="alert"> --}}
-                                            <strong class="invalid-feedback">{{ $message }}</strong>
+                                            <strong class="alert alert-danger">{{ $message }}</strong>
                                         {{-- </span> --}}
                                     @enderror
                                 </div>
