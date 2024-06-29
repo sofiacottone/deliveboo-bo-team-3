@@ -71,11 +71,11 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $dish = Dish::find($id);
-        return view('admin.dishes.show', compact('dish'));
-    }
+    public function show($slug)
+{
+    $dish = Dish::where('slug', $slug)->firstOrFail();
+    return view('admin.dishes.show', compact('dish'));
+}
 
     /**
      * Show the form for editing the specified resource.
