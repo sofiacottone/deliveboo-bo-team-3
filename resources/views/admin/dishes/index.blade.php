@@ -10,9 +10,9 @@
     <thead>
       <tr>
         <th scope="col">NOME</th>
-        <th scope="col">SLUG</th>
         <th scope="col">PREZZO</th>
         <th scope="col">DESCRIZIONE</th>
+        <th scope="col">VISIBILITÀ</th>
         <th scope="col">AZIONI</th>
       </tr>
     </thead>
@@ -20,12 +20,12 @@
     @foreach ($dishes as $dish)
         <tr>
             <td>{{$dish->name}}</td>
-            <td>{{$dish->slug}}</td>
             <td>{{$dish->price}}</td>
             <td>{{$dish->description}}</td>
+            <td>{{$dish->visibility}}</td>
             <td>
-                <a class="text-body" href="{{ route('admin.menu.show', $dish->id) }}"><i class="fa-solid fa-info"></i></a>
-                <i class="fa-solid fa-pen-to-square"></i>
+                <a class="text-body" href="{{ route('admin.menu.show', $dish->slug) }}"><i class="fa-solid fa-info"></i></a>
+                <a class="text-body" href="{{ route('admin.menu.edit', $dish->slug) }}"><i class="fa-solid fa-pen-to-square"></i></a>
                 <i class="fa-solid fa-trash"></i>
             </td>
         </tr>
