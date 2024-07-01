@@ -77,14 +77,14 @@
                                     <i class="fa-solid fa-plus fa-lg fa-fw"></i> New project
                                 </a>
                             </li> --}}
-                            {{-- <li class="nav-item">
-                                <a class="nav-link text-white rounded-1 hstack justify-content-between {{ Route::currentRouteName() == 'admin.projects.deleted' ? 'bg-secondary' : '' }}"
-                                    href="{{ route('admin.projects.deleted') }}">
+                            <li class="nav-item">
+                                <a class="nav-link text-white rounded-1 hstack justify-content-between {{ Route::currentRouteName() == 'admin.menu.deleted' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.menu.deleted') }}">
                                     <span>
-                                        <i class="fa-solid fa-trash fa-lg fa-fw"></i> Deleted projects
+                                        <i class="fa-solid fa-trash fa-lg fa-fw"></i> Piatti eliminati
                                     </span>
                                 </a>
-                            </li> --}}
+                            </li>
                         </ul>
 
 

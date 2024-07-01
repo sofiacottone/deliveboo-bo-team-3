@@ -27,10 +27,9 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('menu', DishController::class)->parameters(['menu'=>'dish:slug']);
-        // Route::get('/menu/{slug}', [DishController::class, 'show'])->name('menu.show');
-
-        // Route::get('/menu/{id}', [DishController::class, 'show'])->name('menu.show');
-        // Route::get('/menu/create', [DishController::class, 'create'])->name('menu.create');
+        Route::get('/deleted', [DishController::class, 'deleted'])->name('menu.deleted');
+        Route::get('/restore/{dish}', [DishController::class, 'restore'])->name('menu.restore');
+        Route::delete('/force-delete/{menu}', [DishController::class, 'forceDelete'])->name('menu.forceDelete');
     });
 
 Route::middleware('auth')->group(function () {

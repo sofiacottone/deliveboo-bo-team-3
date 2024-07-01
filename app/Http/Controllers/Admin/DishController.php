@@ -52,7 +52,7 @@ class DishController extends Controller
             ], );
 
         $formdata = $request->all();
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $img_path = Storage::disk('public')->put('dish_image', $formdata['image']);
             $formdata['image'] = $img_path;
         }
@@ -146,6 +146,46 @@ class DishController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dish = Dish::findOrFail($id);
+        $dish->delete();
+        return redirect()->route('admin.menu.index');
+    }
+
+    /**
+     * Display a listing of the deleted resources.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function deleted()
+    {
+        $dishes = Dish::onlyTrashed()->get();
+
+        return view('admin.dishes.deleted', compact('dishes'));
+    }
+
+    /**
+     * Restore a specified soft deleted resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function restore($id)
+    {
+        $dish = Dish::where('id', $id)->withTrashed();
+        $dish->restore();
+
+        return redirect()->route('admin.menu.index');
+    }
+
+    /**
+     * Permanently delete a specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function forceDelete($id)
+    {
+        $dish = Dish::where('id', $id)->withTrashed();
+        $dish->forceDelete();
+
+        return redirect()->route('admin.menu.index');
     }
 }
