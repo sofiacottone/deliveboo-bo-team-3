@@ -29,6 +29,7 @@ Route::middleware(['auth', 'verified'])
         Route::resource('menu', DishController::class);
         Route::get('/deleted', [DishController::class, 'deleted'])->name('menu.deleted');
         Route::get('/restore/{dish}', [DishController::class, 'restore'])->name('menu.restore');
+        Route::delete('/force-delete/{menu}', [DishController::class, 'forceDelete'])->name('menu.forceDelete');
     });
 
 Route::middleware('auth')->group(function () {
