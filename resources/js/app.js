@@ -45,7 +45,7 @@ allDeleteButtons.forEach((deleteButton) => {
         const dishName = this.dataset.dishName;
 
         // print html inside the modal body
-        confirmDelete.querySelector('.ms-modal-body').innerHTML = `Are you sure you want to delete '${dishName}'?`;
+        confirmDelete.querySelector('.ms-modal-body').innerHTML = `Vuoi eliminare '${dishName}'?`;
 
         // get the btn that confirms the modal
         const modalConfirm = document.getElementById('modal-confirm');
