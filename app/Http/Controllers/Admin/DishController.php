@@ -85,7 +85,8 @@ class DishController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dish = Dish::find($id);
+        return view('admin.dishes.edit', compact('dish'));
     }
 
     /**
@@ -97,7 +98,43 @@ class DishController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dish = Dish::find($id);
+        $request->validate(
+            [
+                'name' => 'required|max:250|min:5',
+                'price' => 'required|max:999|min:1',
+                'image' => 'nullable|image',
+                'description' => 'nullable|max:5000|min:10',
+            ],
+
+            [
+                'name.required' => "Il campo 'Nome del piatto' è richiesto",
+                'name.max' => "Il 'Nome del piatto' può avere massimo 250 caratteri",
+                'name.min' => "Il 'Nome del piatto' deve avere almeno 5 caratteri",
+                'price.required' => "Il campo 'prezzo' è richiesto",
+                'price.max' => "Il campo 'prezzo' può avere un valore di massimo €999",
+                'price.min' => "Il campo 'prezzo' deve avere almeno il valore di €1",
+                'image.image' => "Il campo 'immagine' deve essere un file immagine",
+                'description.min' => "Il campo 'Descrizione' può rimanere vuoto o deve avere minimo 10 caratteri",
+                'description.max' => "Il campo 'Descrizione' può avere massimo 5000 caratteri",
+            ]
+        );
+        
+        $formdata = $request->all();
+        $this->validation($formData);
+
+        if ($request->hasFile('image')) {
+            // Rimuovi la vecchia immagine se esiste
+            if ($dish->image) {
+                Storage::delete($dish->image);
+            }
+            $img_path = Storage::disk('public')->put('dish_image', $formdata['image']);
+            $formdata['image'] = $img_path;
+        } 
+
+        $dish->update($formdata);
+       
+        return redirect()->route('admin.menu.show', $dish->id);
     }
 
     /**
