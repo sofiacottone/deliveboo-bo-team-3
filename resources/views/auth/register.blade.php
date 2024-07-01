@@ -52,7 +52,7 @@
                                 <div class="col-md-6">
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="new-password" oninput="checkPasswordMatch()">
+                                        required autocomplete="new-password">
                                 </div>
                             </div>
 
@@ -63,7 +63,7 @@
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" required autocomplete="new-password"
-                                        oninput="checkPasswordMatch()">
+                                        >
                                 </div>
                                 @error('password')
                                     <span class="invalid-feedback d-none" id="password-error" role="alert">
@@ -178,18 +178,17 @@
         </div>
     </div>
     <script>
-        function checkPasswordMatch() {
-            const password = document.getElementById("password").value;
-            const confirmPassword = document.getElementById("password-confirm").value;
-            const errorMessage = document.getElementById("password-error");
+        // function checkPasswordMatch() {
+        //     const password = document.getElementById("password").value;
+        //     const confirmPassword = document.getElementById("password-confirm").value;
+        //     const errorMessage = document.getElementById("password-error");
 
-            if (password !== confirmPassword) {
-                errorMessage.classList.remove("d-none");
-            } else {
-                errorMessage.classList.add("d-none");
-            }
-        }
-
+        //     if (password !== confirmPassword) {
+        //         errorMessage.classList.remove("d-none");
+        //     } else {
+        //         errorMessage.classList.add("d-none");
+        //     }
+        // }
 
         function validateForm() {
             const password = document.getElementById("password").value;
@@ -198,7 +197,11 @@
             if (password !== confirmPassword) {
                 alert("Password e conferma password devono essere uguali");
                 return false;
-            }
+            } 
+            // else if (password !== confirmPassword) {
+            //     alert("Il campo password è obbligatorio");
+            //     return false;
+            // }
             return true;
         }
     </script>
