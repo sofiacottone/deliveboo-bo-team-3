@@ -1,10 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-    <H3 class="text-center">I tuoi Piatti</H3>
-    <div class="d-flex">
-        <h4>Aggiungi un piatto:</h4>
-        <a class="text-body" href="{{ Route('admin.menu.create') }}"><i class="fa-solid fa-plus"></i></a>
+    <h3 class="text-center">I tuoi Piatti</h3>
+    <div class="hstack justify-content-end align-items-center gap-2">
+        <h4>Aggiungi un piatto</h4>
+        <a class="text-body btn btn-outline-success mb-2" href="{{ Route('admin.menu.create') }}"><i
+                class="fa-solid fa-plus"></i></a>
     </div>
     <table class="table table-striped">
         <thead>
@@ -23,6 +24,7 @@
                     <td>{{ $dish->slug }}</td>
                     <td>{{ $dish->price }}</td>
                     <td>{{ $dish->description }}</td>
+
                     {{-- actions --}}
                     <td class="d-flex justify-content-center align-items-center gap-2">
                         <a class="text-body btn btn-outline-secondary" href="{{ route('admin.menu.show', $dish->id) }}">
@@ -55,14 +57,14 @@
             <div class="hstack align-items-center justify-content-between mb-3">
                 <div class="hstack align-items-center justify-content-center gap-2">
                     <img src="https://img.icons8.com/ios/40/000000/box-important--v1.png" alt="box-important--v1" />
-                    <div class="fs-3">Confirm delete</div>
+                    <div class="fs-3">Conferma cancellazione</div>
                 </div>
                 <div class="ms-close">&times;</div>
             </div>
             <div class="ms-modal-body"></div>
-            <div class="hstack justify-content-end gap-2">
-                <button class="ms-close-btn btn btn-secondary">Cancel</button>
-                <button id="modal-confirm" class="btn btn-danger">Delete</button>
+            <div class="hstack justify-content-end gap-2 mt-2">
+                <button class="ms-close-btn btn btn-secondary">Annulla</button>
+                <button id="modal-confirm" class="btn btn-danger">Elimina</button>
             </div>
         </div>
 
