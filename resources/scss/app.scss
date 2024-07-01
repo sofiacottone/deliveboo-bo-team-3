@@ -1,2 +1,13 @@
+@use '../scss/partials/variables' as *;
 @use '../scss/partials/modal';
-@import '~bootstrap/scss/bootstrap'
+@use '../scss/partials/home-cards';
+@import '~bootstrap/scss/bootstrap';
+
+body {
+    background-color: $bg-color-gray;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
