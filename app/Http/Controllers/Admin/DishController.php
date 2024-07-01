@@ -49,7 +49,8 @@ class DishController extends Controller
                 'price' => 'required|max:999|min:1',
                 'image' => 'nullable|image',
                 'description' => 'nullable|max:5000|min:10'
-            ], );
+            ],
+        );
 
         $formdata = $request->all();
         if ($request->hasFile('image')) {
@@ -72,10 +73,10 @@ class DishController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
-{
-    $dish = Dish::where('slug', $slug)->firstOrFail();
-    return view('admin.dishes.show', compact('dish'));
-}
+    {
+        $dish = Dish::where('slug', $slug)->firstOrFail();
+        return view('admin.dishes.show', compact('dish'));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -99,7 +100,7 @@ class DishController extends Controller
      */
     public function update(Request $request, Dish $dish)
     {
-        
+
         $request->validate(
             [
                 'name' => 'required|max:250|min:5',
@@ -120,7 +121,7 @@ class DishController extends Controller
                 'description.max' => "Il campo 'Descrizione' può avere massimo 5000 caratteri",
             ]
         );
-        
+
         $formData = $request->all();
         // $this->validation($formData);
 
@@ -131,11 +132,11 @@ class DishController extends Controller
             }
             $img_path = Storage::disk('public')->put('dish_image', $formData['image']);
             $formData['image'] = $img_path;
-        } 
+        }
         $dish->slug = Str::slug($formData['name'], '-');
         $dish->update($formData);
-       
-        return redirect()->route('admin.menu.show',['dish'=>$dish->slug]);
+
+        return redirect()->route('admin.menu.show', ['dish' => $dish->slug]);
     }
 
     /**
