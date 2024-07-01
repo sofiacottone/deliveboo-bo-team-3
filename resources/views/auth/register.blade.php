@@ -128,7 +128,7 @@
                                 <div class="col-md-4 col-form-label text-md-right">
                                     {{ __('Categoria (seleziona una o più)') }}</div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-6 d-flex flex-wrap gap-2">
                                     @foreach ($categories as $category)
                                         <div class="form-check mt-1">
                                             <input @checked(in_array($category->id, old('categories', []))) class="form-check-input" type="checkbox"
