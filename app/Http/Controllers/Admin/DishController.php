@@ -19,7 +19,7 @@ class DishController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $dishes = $user->restaurant->dishes;
+        $dishes = $user->restaurant->dishes()->orderBy('name', 'asc')->get();
         return view('admin.dishes.index', compact('dishes'));
     }
 
