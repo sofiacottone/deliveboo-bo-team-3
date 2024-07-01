@@ -10,6 +10,8 @@
 
     <title>{{ config('app.name', 'Deliveboo') }}</title>
 
+    <!-- Favicon Custom -->
+    <link rel="shortcut icon" href="{{ asset('deliveboo-favicon.png') }}" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
