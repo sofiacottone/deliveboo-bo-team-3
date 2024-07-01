@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Modifica il tuo piatto!') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.menu.update', ['menu' => $dish->id]) }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.menu.update', ['dish' => $dish->slug]) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
@@ -19,7 +19,7 @@
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror"  name="name"
-                                        value="{{ old('name', $dish->name) }}" autocomplete="name" autofocus>
+                                        value="{{ old('name', $dish->name) }}" autocomplete="name" autofocus> 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

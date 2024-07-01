@@ -83,9 +83,10 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Dish $dish)
     {
-        $dish = Dish::find($id);
+        // $dish = Dish::find($slug);
+
         return view('admin.dishes.edit', compact('dish'));
     }
 
@@ -96,9 +97,9 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Dish $dish)
     {
-        $dish = Dish::find($id);
+        
         $request->validate(
             [
                 'name' => 'required|max:250|min:5',
@@ -120,21 +121,21 @@ class DishController extends Controller
             ]
         );
         
-        $formdata = $request->all();
-        $this->validation($formData);
+        $formData = $request->all();
+        // $this->validation($formData);
 
         if ($request->hasFile('image')) {
             // Rimuovi la vecchia immagine se esiste
             if ($dish->image) {
                 Storage::delete($dish->image);
             }
-            $img_path = Storage::disk('public')->put('dish_image', $formdata['image']);
-            $formdata['image'] = $img_path;
+            $img_path = Storage::disk('public')->put('dish_image', $formData['image']);
+            $formData['image'] = $img_path;
         } 
-
-        $dish->update($formdata);
+        $dish->slug = Str::slug($formData['name'], '-');
+        $dish->update($formData);
        
-        return redirect()->route('admin.menu.show', $dish->id);
+        return redirect()->route('admin.menu.show',['dish'=>$dish->slug]);
     }
 
     /**
