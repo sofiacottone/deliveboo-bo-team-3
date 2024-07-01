@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <div class="col">
                 <div class="card">
-                    <div class="card-header">{{ __('User Dashboard') }}</div>
+                    <div class="card-header">{{ __('Il tuo ristorante') }}</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -17,8 +17,12 @@
                             </div>
                         @endif
 
-                        Ciao {{ $user->name }}!
-                        {{ __('You are logged in!') }}
+                        <div><span class="fw-bold">Nome: </span>{{ $user->restaurant->restaurant_name }}</div>
+                        <div><span class="fw-bold">Indirizzo: </span>{{ $user->restaurant->address }}</div>
+                        <div><span class="fw-bold">P.Iva: </span>{{ $user->restaurant->VAT_no }}</div>
+                        @if ($user->restaurant->description)
+                            <div><span class="fw-bold">Descrizione: </span>{{ $user->restaurant->description }}</div>
+                        @endif
                     </div>
                 </div>
             </div>
