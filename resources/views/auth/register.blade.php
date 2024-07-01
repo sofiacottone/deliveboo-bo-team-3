@@ -13,7 +13,7 @@
 
                             <div class="mb-4 row">
                                 <label for="name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Tuo nome') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome e cognome') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
@@ -62,13 +62,14 @@
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password" oninput="checkPasswordMatch()">
+                                        name="password_confirmation" required autocomplete="new-password"
+                                        oninput="checkPasswordMatch()">
                                 </div>
                                 @error('password')
                                     <span class="invalid-feedback d-none" id="password-error" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror                            
+                                @enderror
                             </div>
 
                             {{-- restaurant info  --}}
@@ -133,7 +134,8 @@
                                             <input @checked(in_array($category->id, old('categories', []))) class="form-check-input" type="checkbox"
                                                 value="{{ $category->id }}" id="category-{{ $category->id }}"
                                                 name="categories[]">
-                                            <label class="form-check-label" for="category-{{ $category->id }}">
+                                            <label class="form-check-label text-capitalize"
+                                                for="category-{{ $category->id }}">
                                                 {{ $category->name }}
                                             </label>
                                         </div>
@@ -165,7 +167,7 @@
                             <div class="mb-4 row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
+                                        {{ __('Registrati') }}
                                     </button>
                                 </div>
                             </div>
@@ -176,12 +178,11 @@
         </div>
     </div>
     <script>
-
         function checkPasswordMatch() {
             const password = document.getElementById("password").value;
             const confirmPassword = document.getElementById("password-confirm").value;
             const errorMessage = document.getElementById("password-error");
-    
+
             if (password !== confirmPassword) {
                 errorMessage.classList.remove("d-none");
             } else {
@@ -200,7 +201,5 @@
             }
             return true;
         }
-
     </script>
-    
 @endsection
