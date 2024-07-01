@@ -8,13 +8,14 @@
                     <div class="card-header">{{ __('Registrati') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}" onsubmit="return validateForm()">
+                        <form method="POST" action="{{ route('register') }}">
                             @csrf
 
                             <div class="mb-4 row">
                                 <label for="name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome e cognome') }}</label>
-
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome e cognome') }}                                        <span style="color: red;">*</span>
+                                </label>
+                                
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
@@ -30,7 +31,8 @@
 
                             <div class="mb-4 row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo E-Mail') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo E-Mail') }}                                         <span style="color: red;">*</span>
+                                </label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -47,7 +49,8 @@
 
                             <div class="mb-4 row">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}                                        <span style="color: red;">*</span>
+                                </label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
@@ -58,7 +61,8 @@
 
                             <div class="mb-4 row">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}                                        <span style="color: red;">*</span>
+                                </label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
@@ -75,7 +79,8 @@
                             {{-- restaurant info  --}}
                             <div class="mb-4 row">
                                 <label for="restaurant-name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome ristorante') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome ristorante') }}                                        <span style="color: red;">*</span>
+                                </label>
 
                                 <div class="col-md-6">
                                     <input id="restaurant-name" type="text"
@@ -92,7 +97,8 @@
 
                             <div class="mb-4 row">
                                 <label for="address"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo ristorante') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo ristorante') }}                                        <span style="color: red;">*</span>
+                                </label>
 
                                 <div class="col-md-6">
                                     <input id="address" type="text"
@@ -109,7 +115,8 @@
 
                             <div class="mb-4 row">
                                 <label for="vat-no"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Partita iva') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Partita iva') }}                                        <span style="color: red;">*</span>
+                                </label>
 
                                 <div class="col-md-6">
                                     <input id="vat-no" type="text"
@@ -126,7 +133,8 @@
 
                             <div class="mb-4 row">
                                 <div class="col-md-4 col-form-label text-md-right">
-                                    {{ __('Categoria (seleziona una o più)') }}</div>
+                                    {{ __('Categoria (seleziona una o più)') }}                                        <span style="color: red;">*</span>
+                                </div>
 
                                 <div class="col-md-6 d-flex flex-wrap gap-2">
                                     @foreach ($categories as $category)
@@ -178,17 +186,6 @@
         </div>
     </div>
     <script>
-        // function checkPasswordMatch() {
-        //     const password = document.getElementById("password").value;
-        //     const confirmPassword = document.getElementById("password-confirm").value;
-        //     const errorMessage = document.getElementById("password-error");
-
-        //     if (password !== confirmPassword) {
-        //         errorMessage.classList.remove("d-none");
-        //     } else {
-        //         errorMessage.classList.add("d-none");
-        //     }
-        // }
 
         function validateForm() {
             const password = document.getElementById("password").value;
