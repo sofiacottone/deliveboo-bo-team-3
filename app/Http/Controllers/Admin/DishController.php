@@ -123,10 +123,21 @@ class DishController extends Controller
      */
     public function restore($id)
     {
-        // $dish = Dish::findOrFail($id);
         $dish = Dish::where('id', $id)->withTrashed();
-        // dd($dish);
         $dish->restore();
+
+        return redirect()->route('admin.menu.index');
+    }
+
+    /**
+     * Permanently delete a specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function forceDelete($id)
+    {
+        $dish = Dish::where('id', $id)->withTrashed();
+        $dish->forceDelete();
 
         return redirect()->route('admin.menu.index');
     }
