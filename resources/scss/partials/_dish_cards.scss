@@ -17,8 +17,13 @@
     i {
         font-size: 18px;
     }
+    .ms-img {
+        height: 125px;
+        object-fit: cover;
+    }
 }
 
 .disabled {
     opacity: 0.3;
 }
+
