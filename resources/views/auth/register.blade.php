@@ -67,7 +67,7 @@
                                     <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" required autocomplete="new-password"
                                         >
-                                        <span id="invalid-password" class="d-none text-danger">Le password devono corrispondere</span>
+                                        <span id="invalid-password" class="d-none text-danger fw-bold">Le password devono corrispondere</span>
                                 </div>
                                 @error('password')
                                     <span class="invalid-feedback d-none" id="password-error" role="alert">

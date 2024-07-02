@@ -50,6 +50,17 @@ class DishController extends Controller
                 'image' => 'nullable|image',
                 'description' => 'nullable|max:5000|min:10'
             ],
+            [
+                'name.required' => "Il campo 'Nome del piatto' è richiesto",
+                'name.max' => "Il 'Nome del piatto' può avere massimo 250 caratteri",
+                'name.min' => "Il 'Nome del piatto' deve avere almeno 5 caratteri",
+                'price.required' => "Il campo 'prezzo' è richiesto",
+                'price.max' => "Il campo 'prezzo' può avere un valore di massimo €999",
+                'price.min' => "Il campo 'prezzo' deve avere almeno il valore di €1",
+                'image.image' => "Il campo 'immagine' deve essere un file immagine",
+                'description.min' => "Il campo 'Descrizione' può rimanere vuoto o deve avere minimo 10 caratteri",
+                'description.max' => "Il campo 'Descrizione' può avere massimo 5000 caratteri",
+            ]
         );
 
         $formdata = $request->all();
