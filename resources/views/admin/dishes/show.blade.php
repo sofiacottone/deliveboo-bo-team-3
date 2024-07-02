@@ -54,6 +54,5 @@
                 <button id="modal-confirm" class="btn btn-danger">Elimina</button>
             </div>
         </div>
-
     </div>
 @endsection
