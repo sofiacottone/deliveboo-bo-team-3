@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="hstack justify-content-end align-items-center mt-2">
-        <i class="fa-solid fa-table-list border p-2 rounded"></i>
-        <i class="fa-solid fa-grip border p-2 rounded"></i>
+        <i class="fa-solid fa-table-list border p-2 rounded" role="button"></i>
+        <i class="fa-solid fa-grip border p-2 rounded" role="button"></i>
     </div>
 
     <h3 class="text-center">I tuoi Piatti</h3>

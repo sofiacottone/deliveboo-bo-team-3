@@ -194,11 +194,7 @@
             if (password !== confirmPassword) {
                 alert("Password e conferma password devono essere uguali");
                 return false;
-            } 
-            // else if (password !== confirmPassword) {
-            //     alert("Il campo password è obbligatorio");
-            //     return false;
-            // }
+            }
             return true;
         }
     </script>
