@@ -63,11 +63,11 @@
                                 <label for="password-confirm"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}                                        <span style="color: red;">*</span>
                                 </label>
-
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" required autocomplete="new-password"
                                         >
+                                        <span id="invalid-password" class="d-none text-danger">Le password devono corrispondere</span>
                                 </div>
                                 @error('password')
                                     <span class="invalid-feedback d-none" id="password-error" role="alert">
@@ -192,7 +192,7 @@
             const confirmPassword = document.getElementById("password-confirm").value;
 
             if (password !== confirmPassword) {
-                alert("Password e conferma password devono essere uguali");
+                document.getElementById("invalid-password").classList.remove("d-none");
                 return false;
             }
             return true;
