@@ -16,12 +16,21 @@
                                 {{ session('status') }}
                             </div>
                         @endif
+                        {{-- {{ dd($user->restaurant->categories) }} --}}
 
                         <div><span class="fw-bold">Nome: </span>{{ $user->restaurant->restaurant_name }}</div>
                         <div><span class="fw-bold">Indirizzo: </span>{{ $user->restaurant->address }}</div>
                         <div><span class="fw-bold">P.Iva: </span>{{ $user->restaurant->VAT_no }}</div>
+                        @if ($user->restaurant->image)
+                            <div><span class="fw-bold">Foto: </span>{{ $user->restaurant->image }}</div>
+                        @else
+                            <div><span class="fw-bold">Foto: </span>Non hai caricato nessuna foto di profilo:(</div>
+                        @endif
+                        <div><span class="fw-bold">Categoria: </span>{{ $user->restaurant->categories }}</div>
                         @if ($user->restaurant->description)
                             <div><span class="fw-bold">Descrizione: </span>{{ $user->restaurant->description }}</div>
+                            @else
+                            <div><span class="fw-bold">Descrizione: </span>Non hai scitto nessuna descrizione:(</div>
                         @endif
                     </div>
                 </div>
