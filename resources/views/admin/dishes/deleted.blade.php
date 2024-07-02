@@ -26,7 +26,7 @@
                                 class="btn btn-outline-secondary">
                                 <i class="fa-solid fa-trash-can-arrow-up"></i>
                             </a>
-
+{{-- 
                             <form action="{{ route('admin.menu.forceDelete', ['menu' => $dish->id]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -34,7 +34,7 @@
                                     class="js-delete-btn btn btn-outline-danger">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
-                            </form>
+                            </form> --}}
                         </td>
                     </tr>
                 @endforeach
