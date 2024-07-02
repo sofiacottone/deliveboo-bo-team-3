@@ -20,6 +20,11 @@
                         <div><span class="fw-bold">Nome: </span>{{ $user->restaurant->restaurant_name }}</div>
                         <div><span class="fw-bold">Indirizzo: </span>{{ $user->restaurant->address }}</div>
                         <div><span class="fw-bold">P.Iva: </span>{{ $user->restaurant->VAT_no }}</div>
+                        <div><span class="fw-bold">Categoria: </span>
+                            @foreach ($user->restaurant->categories as $category)
+                                <div class="badge text-bg-primary">{{ $category->name }}</div>
+                            @endforeach
+                        </div>
                         @if ($user->restaurant->description)
                             <div><span class="fw-bold">Descrizione: </span>{{ $user->restaurant->description }}</div>
                         @endif
