@@ -25,6 +25,9 @@
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
+
+    <!-- Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
 <body>
