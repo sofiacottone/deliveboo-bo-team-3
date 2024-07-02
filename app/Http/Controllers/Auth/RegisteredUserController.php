@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class RegisteredUserController extends Controller
 {
@@ -55,6 +56,11 @@ class RegisteredUserController extends Controller
         ]);
 
         $formData = $request->all();
+        //add restaurant photo
+        if ($request->hasFile('image')) {
+            $img_path = Storage::disk('public')->put('restaurant_image', $formData['image']);
+            $formData['image'] = $img_path;
+        }
 
         // create new restaurant 
         $newRestaurant = new Restaurant();
