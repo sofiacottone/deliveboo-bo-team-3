@@ -13,7 +13,9 @@
 
                             <div class="mb-4 row">
                                 <label for="name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome del Piatto') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome del Piatto') }}
+                                    <span style="color: red;">*</span>
+                                </label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
@@ -30,7 +32,9 @@
                             </div>
                             <div class="mb-4 row">
                                 <label for="price"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Prezzo') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Prezzo') }}
+                                    <span style="color: red;">*</span>
+                                </label>
 
                                 <div class="col-md-6">
                                     <input id="price" type="number" min="1" step=".1" max="999"
