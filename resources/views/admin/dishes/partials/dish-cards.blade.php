@@ -9,11 +9,18 @@
                         <h5 class="card-title">{{ $dish->name }}</h5>
                         <h6 class="card-title"><i class="fa-solid fa-euro-sign mb-1"></i> {{ $dish->price }}</h6>
                         <h6 class="card-title">Visibile nel menù:
-                            @if ($dish->visibility == 1)
-                                <i class="fa-solid fa-eye"></i>
-                            @else
-                                <i class="fa-solid fa-eye-slash"></i>
-                            @endif
+
+                            <form method="POST" action="{{ route('admin.menu.updateVisibility', ['dish' => $dish->id]) }}">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-secondary">
+                                    @if ($dish->visibility == 1)
+                                        <i class="fa-solid fa-eye"></i>
+                                    @else
+                                        <i class="fa-solid fa-eye-slash"></i>
+                                    @endif
+                                </button>
+                            </form>
                         </h6>
                         </div>
                         <hr class="mb-3">

@@ -30,6 +30,7 @@ Route::middleware(['auth', 'verified'])
         Route::get('/deleted', [DishController::class, 'deleted'])->name('menu.deleted');
         Route::get('/restore/{dish}', [DishController::class, 'restore'])->name('menu.restore');
         Route::delete('/force-delete/{menu}', [DishController::class, 'forceDelete'])->name('menu.forceDelete');
+        Route::put('/menu/{dish}/update-visibility', [DishController::class, 'updateVisibility'])->name('menu.updateVisibility');
     });
 
 Route::middleware('auth')->group(function () {
