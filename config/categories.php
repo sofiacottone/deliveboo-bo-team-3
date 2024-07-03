@@ -3,159 +3,47 @@
 return [
     [
         "name" => "italiano",
-        "image" => "",
+        "image" => 'resources/img/flag-italy_1f1ee-1f1f9.png',
     ],
-    // [
-    //     "name" => "internazionale",
-    //     "image" => "",
-    // ],
     [
         "name" => "cinese",
-        "image" => "",
+        "image" => 'resources\img\flag-taiwan_1f1f9-1f1fc.png',
     ],
     [
         "name" => "giapponese",
-        "image" => "",
+        "image" => 'resources\img\flag-japan_1f1ef-1f1f5.png',
     ],
     [
         "name" => "messicano",
-        "image" => "",
+        "image" => 'resources\img\flag-mexico_1f1f2-1f1fd.png',
     ],
     [
         "name" => "indiano",
-        "image" => "",
+        "image" => 'resources\img\flag-india_1f1ee-1f1f3.png',
     ],
-    // [
-    //     "name" => "pesce",
-    //     "image" => "",
-    // ],
-    // [
-    //     "name" => "carne",
-    //     "image" => "",
-    // ],
     [
         "name" => "pizza",
-        "image" => "",
-    ],
-    [
-        'name' => 'messicano',
-        'image' => ''
-    ],
-    [
-        'name' => 'vegetariano',
-        'image' => ''
-    ],
-    [
-        'name' => 'vegano',
-        'image' => ''
-    ],
-    [
-        'name' => 'fast food',
-        'image' => ''
-    ],
-    [
-        'name' => 'barbecue',
-        'image' => ''
-    ],
-    // [
-    //     'name' => 'frutti di mare',
-    //     'image' => ''
-    // ],
-    [
-        'name' => 'mediterraneo',
-        'image' => ''
-    ],
-    [
-        'name' => 'francese',
-        'image' => ''
-    ],
-    [
-        'name' => 'spagnolo',
-        'image' => ''
-    ],
-    [
-        'name' => 'thailandese',
-        'image' => ''
-    ],
-    [
-        'name' => 'coreano',
-        'image' => ''
-    ],
-    [
-        'name' => 'vietnamita',
-        'image' => ''
-    ],
-    [
-        'name' => 'gourmet',
-        'image' => ''
-    ],
-    [
-        'name' => 'fusion',
-        'image' => ''
-    ],
-    [
-        'name' => 'steakhouse',
-        'image' => ''
-    ],
-    [
-        'name' => 'libanese',
-        'image' => ''
+        "image" => "resources\img\pizza.png",
     ],
     [
         'name' => 'greco',
-        'image' => ''
+        'image' => 'resources\img\flag-greece_1f1ec-1f1f7.png'
     ],
     [
-        'name' => 'turco',
-        'image' => ''
+        'name' => 'francese',
+        'image' => 'resources\img\flag-france_1f1eb-1f1f7.png'
     ],
     [
-        'name' => 'arabo',
-        'image' => ''
+        'name' => 'thailandese',
+        'image' => 'resources\img\flag-thailand_1f1f9-1f1ed.png'
     ],
     [
-        'name' => 'africano',
-        'image' => ''
-    ],
-    // [
-    //     'name' => 'caraibico',
-    //     'image' => ''
-    // ],
-    // [
-    //     'name' => 'brasiliano',
-    //     'image' => ''
-    // ],
-    [
-        'name' => 'peruviano',
-        'image' => ''
+        'name' => 'vietnamita',
+        'image' => 'resources\img\flag-vietnam_1f1fb-1f1f3.png'
     ],
     [
-        'name' => 'tailandese',
-        'image' => ''
+        'name' => 'coreano',
+        'image' => 'resources\img\flag-south-korea_1f1f0-1f1f7.png'
     ],
-    // [
-    //     'name' => 'birreria',
-    //     'image' => ''
-    // ],
-    // [
-    //     'name' => 'pasticceria',
-    //     'image' => ''
-    // ],
-    [
-        'name' => 'gelateria',
-        'image' => ''
-    ],
-    [
-        'name' => 'paninoteca',
-        'image' => ''
-    ],
-    // [
-    //     'name' => 'taverna',
-    //     'image' => ''
-    // ],
-    // [
-    //     'name' => 'trattoria',
-    //     'image' => ''
-    // ],
 
 ];

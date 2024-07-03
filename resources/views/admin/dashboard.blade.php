@@ -24,6 +24,7 @@
                                 <div><span class="fw-bold">Categoria: </span>
                                     @foreach ($user->restaurant->categories as $category)
                                         <div class="badge text-bg-primary">{{ $category->name }}</div>
+                                        <img src="{{ asset('storage/' .$category->image) }}">
                                     @endforeach
                                 </div>
                                 @if ($user->restaurant->description)
