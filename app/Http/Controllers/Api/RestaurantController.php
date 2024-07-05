@@ -13,12 +13,14 @@ class RestaurantController extends Controller
         // add possibility to filter results
         $query = Restaurant::with('dishes', 'categories');
 
-        if ($request->has('category')) {
-            $category = $request->input('category');
+        // verify if 'categories' exists, is an array and is not empty
+        if ($request->has('categories') && is_array($request->categories) && count($request->categories) > 0) {
+            $categories = $request->input('categories');
+            $categoriesCount = count($categories);
 
-            $query->whereHas('categories', function ($q) use ($category) {
-                $q->where('slug', $category);
-            });
+            $query->whereHas('categories', function ($q) use ($categories) {
+                $q->whereIn('slug', $categories);
+            }, '=', $categoriesCount);
         }
 
         $restaurants = $query->get();
