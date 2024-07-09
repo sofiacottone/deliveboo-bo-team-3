@@ -17,20 +17,20 @@
                         </h6>
                         </div>
                         <hr class="mb-3">
-                        <div class="d-flex justify-content-center flex-wrap flex-lg-nowrap">
-                            <a class="text-body btn btn-outline-primary btn-sm"
+                        <div class="d-flex justify-content-center flex-wrap ">
+                            <a class="text-body btn btn-outline-primary btn-sm my-2"
                                 href="{{ route('admin.menu.show', $dish->slug) }}">
                                 Mostra
                             </a>
                             <a href="{{ route('admin.menu.edit', $dish->slug) }}"
-                                class="btn btn-outline-secondary mx-2 btn-sm">
+                                class="btn btn-outline-secondary mx-2 btn-sm my-2">
                                 Modifica
                             </a>
                             <form action="{{ route('admin.menu.destroy', ['dish' => $dish->id]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" data-dish-name="{{ $dish->name }}"
-                                    class="js-delete-btn btn btn-outline-danger btn-sm">
+                                    class="js-delete-btn btn btn-outline-danger btn-sm my-2">
                                     Elimina
                                 </button>
                             </form>

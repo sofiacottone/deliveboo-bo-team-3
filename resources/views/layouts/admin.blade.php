@@ -54,7 +54,7 @@
         <div class="container-fluid vh-100">
             <div class="row h-100">
                 <nav id="sidebarMenu"
-                    class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse h-100 position-fixed">
+                    class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse ms-height-100">
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column gap-1 pb-2">
                             <li class="nav-item">
@@ -99,5 +99,17 @@
 
     </div>
 </body>
+
+<style>
+    .ms-height-100 {
+        height: 100%;
+    }
+
+    @media screen and (max-width: 576px) {
+        .ms-height-100 {
+            height: 160px;
+        }
+    }
+</style>
 
 </html>
