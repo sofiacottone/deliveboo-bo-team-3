@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DishController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\RestaurantController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -26,10 +27,13 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-        Route::resource('menu', DishController::class)->parameters(['menu'=>'dish:slug']);
+        Route::resource('menu', DishController::class)->parameters(['menu' => 'dish:slug']);
         Route::get('/deleted', [DishController::class, 'deleted'])->name('menu.deleted');
         Route::get('/restore/{dish}', [DishController::class, 'restore'])->name('menu.restore');
         Route::delete('/force-delete/{menu}', [DishController::class, 'forceDelete'])->name('menu.forceDelete');
+        Route::get('/orders', [OrderController::class, 'index'])->name('orders');
+        Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
+        Route::get('/orders/details/{id}', [OrderController::class, 'orderDetails'])->name('orders.details');
     });
 
 Route::middleware('auth')->group(function () {
