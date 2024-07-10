@@ -13,9 +13,10 @@
 
                             <div class="mb-4 row">
                                 <label for="name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome e cognome') }}                                        <span style="color: red;">*</span>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome e cognome') }} <span
+                                        style="color: red;">*</span>
                                 </label>
-                                
+
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
@@ -31,7 +32,8 @@
 
                             <div class="mb-4 row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo E-Mail') }}                                         <span style="color: red;">*</span>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo E-Mail') }} <span
+                                        style="color: red;">*</span>
                                 </label>
 
                                 <div class="col-md-6">
@@ -48,8 +50,8 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}                                        <span style="color: red;">*</span>
+                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}
+                                    <span style="color: red;">*</span>
                                 </label>
 
                                 <div class="col-md-6">
@@ -61,13 +63,14 @@
 
                             <div class="mb-4 row">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}                                        <span style="color: red;">*</span>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }} <span
+                                        style="color: red;">*</span>
                                 </label>
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password"
-                                        >
-                                        <span id="invalid-password" class="d-none text-danger">Le password devono corrispondere</span>
+                                        name="password_confirmation" required autocomplete="new-password">
+                                    <span id="invalid-password" class="d-none text-danger fw-bold">Le password devono
+                                        corrispondere</span>
                                 </div>
                                 @error('password')
                                     <span class="invalid-feedback d-none" id="password-error" role="alert">
@@ -79,7 +82,8 @@
                             {{-- restaurant info  --}}
                             <div class="mb-4 row">
                                 <label for="restaurant-name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome ristorante') }}                                        <span style="color: red;">*</span>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome ristorante') }} <span
+                                        style="color: red;">*</span>
                                 </label>
 
                                 <div class="col-md-6">
@@ -97,7 +101,8 @@
 
                             <div class="mb-4 row">
                                 <label for="address"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo ristorante') }}                                        <span style="color: red;">*</span>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo ristorante') }} <span
+                                        style="color: red;">*</span>
                                 </label>
 
                                 <div class="col-md-6">
@@ -114,8 +119,8 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="vat-no"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Partita iva') }}                                        <span style="color: red;">*</span>
+                                <label for="vat-no" class="col-md-4 col-form-label text-md-right">{{ __('Partita iva') }}
+                                    <span style="color: red;">*</span>
                                 </label>
 
                                 <div class="col-md-6">
@@ -152,7 +157,7 @@
 
                             <div class="mb-4 row">
                                 <div class="col-md-4 col-form-label text-md-right">
-                                    {{ __('Categoria (seleziona una o più)') }}                                        <span style="color: red;">*</span>
+                                    {{ __('Categoria (seleziona una o più)') }} <span style="color: red;">*</span>
                                 </div>
 
                                 <div class="col-md-6 d-flex flex-wrap gap-2">
@@ -205,7 +210,6 @@
         </div>
     </div>
     <script>
-
         function validateForm() {
             const password = document.getElementById("password").value;
             const confirmPassword = document.getElementById("password-confirm").value;
