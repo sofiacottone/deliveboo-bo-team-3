@@ -5,16 +5,25 @@
                 <div class="card h-100 mb-3 border-dark">
                     <div class="card-body">
                         <div class="ms-img-container {{ $dish->visibility == 0 ? 'disabled' : '' }}">
-                            <img class="card-img-top mb-1 ms-img" src="{{ asset('storage/' . $dish->image) }}" alt="Card image cap">
-                        <h5 class="card-title">{{ $dish->name }}</h5>
-                        <h6 class="card-title"><i class="fa-solid fa-euro-sign mb-1"></i> {{ $dish->price }}</h6>
-                        <h6 class="card-title">Visibile nel menù:
-                            @if ($dish->visibility == 1)
-                                <i class="fa-solid fa-eye"></i>
-                            @else
-                                <i class="fa-solid fa-eye-slash"></i>
-                            @endif
-                        </h6>
+                            <img class="card-img-top mb-1 ms-img" src="{{ asset('storage/' . $dish->image) }}"
+                                alt="Card image cap">
+                            <h5 class="card-title">{{ $dish->name }}</h5>
+                            <h6 class="card-title"><i class="fa-solid fa-euro-sign mb-1"></i> {{ $dish->price }}</h6>
+                            <h6 class="card-title">Visibile nel menù:
+
+                                <form method="POST"
+                                    action="{{ route('admin.menu.updateVisibility', ['dish' => $dish->id]) }}">
+                                    @csrf
+                                    @method('PUT')
+                                    <button type="submit" class="btn btn-outline-secondary">
+                                        @if ($dish->visibility == 1)
+                                            <i class="fa-solid fa-eye"></i>
+                                        @else
+                                            <i class="fa-solid fa-eye-slash"></i>
+                                        @endif
+                                    </button>
+                                </form>
+                            </h6>
                         </div>
                         <hr class="mb-3">
                         <div class="d-flex justify-content-center flex-wrap flex-lg-nowrap">

@@ -72,13 +72,14 @@
                                 </div>
                             </div>
                             <div class="mb-4 row">
-                                <label for="visibiility"
+                                <label for="visibility"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Disponibile') }}</label>
                                 <div class="col-md-6">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="visibility" id="visibility_yes"
                                             value="1"
-                                            {{ old('visibility', $dish->visibility) == 1 ? 'checked' : '' }}>
+                                            {{-- {{ old('visibility', $dish->visibility) == 1 ? 'checked' : '' }} --}}
+                                            @checked(old($dish->visibility) == 1)>
                                         <label class="form-check-label" for="visibility_yes">
                                             Sì
                                         </label>
@@ -86,12 +87,14 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="visibility" id="visibility_no"
                                             value="0"
-                                            {{ old('visibility', $dish->visibility) == 0 ? 'checked' : '' }}>
+                                            {{-- {{ old('visibility', $dish->visibility) == 0 ? 'checked' : '' }} --}}
+                                            @checked(old($dish->visibility) == 0)>
+                                            
                                         <label class="form-check-label" for="visibility_no">
                                             No
                                         </label>
                                     </div>
-                                    @error('visibiility')
+                                    @error('visibility')
                                         {{-- <span class="invalid-feedback" role="alert"> --}}
                                         <strong class="alert alert-danger">{{ $message }}</strong>
                                         {{-- </span> --}}

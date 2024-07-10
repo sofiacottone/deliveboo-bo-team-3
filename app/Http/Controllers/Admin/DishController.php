@@ -200,4 +200,13 @@ class DishController extends Controller
 
         return redirect()->route('admin.menu.index');
     }
+
+    public function updateVisibility(Dish $dish)
+    {
+        $dish->visibility = !$dish->visibility;
+        $dish->update();
+
+        return redirect()->back();
+    }
+
 }
