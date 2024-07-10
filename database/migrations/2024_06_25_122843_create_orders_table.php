@@ -19,9 +19,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('phone_number');
             $table->string('full_name');
-            $table->string('email')->unique();
-            $table->string('status');
-            $table->dateTime('date');
+            $table->string('email');
             $table->timestamps();
         });
     }
