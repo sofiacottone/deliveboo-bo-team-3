@@ -71,12 +71,7 @@
                                     </span>
                                 </a>
                             </li>
-                            {{-- <li class="nav-item">
-                                <a class="nav-link text-white rounded-1 {{ Route::currentRouteName() == 'admin.projects.create' ? 'bg-secondary' : '' }}"
-                                    href="{{ route('admin.projects.create') }}">
-                                    <i class="fa-solid fa-plus fa-lg fa-fw"></i> New project
-                                </a>
-                            </li> --}}
+
                             <li class="nav-item">
                                 <a class="nav-link text-white rounded-1 hstack justify-content-between {{ Route::currentRouteName() == 'admin.menu.deleted' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.menu.deleted') }}">
@@ -85,6 +80,17 @@
                                     </span>
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white rounded-1 hstack justify-content-between {{ Route::currentRouteName() == 'admin.orders' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.orders') }}">
+                                    <span>
+                                        <i class="fa-solid fa-receipt fa-fw me-1"></i></i> Ordini
+                                    </span>
+                                </a>
+                            </li>
+
+
                         </ul>
 
 
