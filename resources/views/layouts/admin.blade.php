@@ -52,8 +52,9 @@
         </header>
 
         <div class="container-fluid vh-100">
-            <div class="row h-100">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
+            <div class="row ms-sidebar-100">
+                <nav id="sidebarMenu"
+                    class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse ms-height-100">
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column gap-1 pb-2">
                             <li class="nav-item">
@@ -110,9 +111,15 @@
         height: 100%;
     }
 
+    @media screen and (min-width: 768px) {
+        .ms-sidebar-100 {
+            height: 100vh;
+        }
+    }
+
     @media screen and (max-width: 576px) {
         .ms-height-100 {
-            height: 160px;
+            height: 190px;
         }
     }
 </style>
