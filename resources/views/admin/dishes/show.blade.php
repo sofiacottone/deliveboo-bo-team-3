@@ -19,6 +19,13 @@
         <div class="card-body">
             <h5 class="card-title"><small><strong>Titolo: </strong></small>{{ $dish->name }}</h5>
             <p class="card-text"><strong>Prezzo: </strong>{{ $dish->price }}€</p>
+            <p class="card-text"><strong>Visibile nel menù: </strong>
+                @if ($dish->visibility == 1)
+                    Sì
+                @else
+                    No
+                @endif
+            </p>
             <p class="card-text"><strong>Descrizione: </strong>{{ $dish->description }}</p>
             <p class="card-text"><small class="text-body-secondary"><strong>Aggiornato il:
                     </strong>{{ $dish->updated_at->format('d/m/Y G:H:s') }}</small></p>
