@@ -17,18 +17,16 @@ class OrderTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create('it_IT');
-        for ($i = 0; $i < 5; $i++) {
-            $newOrder = new Order();
-            $newOrder->price = $faker->randomFloat(2, 10, 100);
-            $newOrder->address = $faker->streetAddress();
-            $newOrder->phone_number = $faker->phoneNumber();
-            $newOrder->full_name = $faker->name();
-            $slug = Str::slug($newOrder->full_name, '.');
-            $newOrder->email = $slug . '@mail.it';
-            $newOrder->status = $faker->randomElement(['in preparazione', 'ritirato', 'in consegna', 'consegnato', 'annullato']);
-            $newOrder->date = $faker->dateTimeBetween('-5 day', 'now');
-            $newOrder->save();
-        }
+        // $faker = Faker::create('it_IT');
+        // for ($i = 0; $i < 5; $i++) {
+        //     $newOrder = new Order();
+        //     $newOrder->price = $faker->randomFloat(2, 10, 100);
+        //     $newOrder->address = $faker->streetAddress();
+        //     $newOrder->phone_number = $faker->phoneNumber();
+        //     $newOrder->full_name = $faker->name();
+        //     $slug = Str::slug($newOrder->full_name, '.');
+        //     $newOrder->email = $slug . '@mail.it';
+        //     $newOrder->save();
+        // }
     }
 }
