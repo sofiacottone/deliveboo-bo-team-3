@@ -55,6 +55,7 @@ class RegisteredUserController extends Controller
                 'email.unique' => "L'email è gia stata utilizzata",
                 'address.required' => "Il campo 'indirizzo' è richiesto",
                 'address.min' => "Il campo 'indirizzo' può avere minimo 5 caratteri",
+                'VAT_no.unique' => "La Partita iva inserita è gia presente nel nostro database",
                 'VAT_no.required' => "Il campo 'VAT no' è richiesto",
                 'VAT_no.max' => "Il campo 'Partita Iva' può avere massimo 13 caratteri",
                 'VAT_no.min' => "Il campo 'Partita Iva' può avere minimo 11 caratteri",
