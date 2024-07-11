@@ -8,7 +8,7 @@
             </a>
         </div>
         <div class="hstack justify-content-between py-2">
-            <div class="card-text"><strong>Ordine numero: </strong>{{ $order->id }}</div>
+            <div class="card-text"><strong>Ordine numero: </strong>1</div>
             <div class="card-text"><strong>Data: </strong>{{ $order->created_at->format('d/m/Y G:H:s') }}</div>
         </div>
         <h2>Comanda</h2>
